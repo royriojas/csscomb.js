@@ -46,9 +46,10 @@
   },
   "dependencies": {
     "commander": "2.0.0",
-    "csscomb-core": "3.0.0-4",
+    "csscomb-core": "3.0.3",
     "gonzales-pe": "3.0.0-28",
-    "vow": "0.4.4"
+    "vow": "0.4.4",
+    "snyk": "^1.105.0"
   },
   "devDependencies": {
     "jshint-groups": "0.5.3",
@@ -67,6 +68,9 @@
   },
   "scripts": {
     "test": "jshint-groups && ./node_modules/.bin/jscs . && node test/mocha",
-    "test-cov": "rm -rf lib-cov && jscoverage lib lib-cov && TEST_COV=true node test/mocha > ./test/test-coverage.html"
-  }
+    "test-cov": "rm -rf lib-cov && jscoverage lib lib-cov && TEST_COV=true node test/mocha > ./test/test-coverage.html",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
